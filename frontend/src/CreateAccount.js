@@ -47,7 +47,7 @@ export class CreateAccount extends Component {
         </AppBar>
         <Box fill align="center" justify="top">
           <Box width="medium">
-          <Text color = "#AAAAAA">Patient's registration form:</Text>
+          
             <Form
               onReset={event => console.log(event)}
               method="post"
@@ -61,7 +61,7 @@ export class CreateAccount extends Component {
 
                     if ((res.data[0])) {
                       window.alert("An account is already associated with that email.");
-                      console.log("no user found");
+                      console.log("No user found");
                     } else {
                       fetch("http://localhost:3001/makeAccount?name=" + value.firstName + "&lastname=" + value.lastName + "&email=" + value.email
                         + "&password=" + value.password + "&address=" + value.address + "&gender=" + value.gender

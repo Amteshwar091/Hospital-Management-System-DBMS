@@ -91,7 +91,7 @@ const DropContent = ({ date: initialDate, time: initialTime, onClose }) => {
           <MaskedInput
             mask={[
               {
-                length: [1, 2],
+                length: [1,2],
                 options: [
                   "0",
                   "1",
@@ -127,7 +127,7 @@ const DropContent = ({ date: initialDate, time: initialTime, onClose }) => {
                 length: 2,
                 options: ["00"],
                 regexp: /^[0-5][0-9]$|^[0-9]$/,
-                placeholder: "mm"
+                placeholder: "mm"     
               }
             ]}
             value={time || initialTime}
@@ -196,7 +196,7 @@ const ConcernsTextArea = () => {
         height="xsmall"
       >
       <TextArea
-        placeholder="Enter your concerns..."
+        placeholder="Enter Your Concerns"
         value={value}
         onChange={onChange}
         fill
@@ -221,7 +221,7 @@ const SymptomsTextArea = () => {
         height="xsmall"
       >
         <TextArea
-          placeholder="Enter your symptoms..."
+          placeholder="Enter Your Symptoms"
           value={value}
           onChange={onChange} fill
           required />
@@ -281,11 +281,12 @@ export class SchedulingAppt extends Component {
                   var email_json = JSON.parse(string_json);
                   let email_in_use = email_json.email;
                   fetch("http://localhost:3001/checkIfApptExists?email=" + email_in_use + "&startTime=" + theTime + "&date=" + theDate + "&docEmail=" + theDoc)
-                    .then(res => res.json())
-                    .then(res => {
-                      if ((res.data[0])) {
-                        window.alert("Appointment Clash! Try another doctor or date/time");
-                      } else {
+                  .then(res => res.json())
+                  .then(res => {
+                    if ((res.data[0])) {
+                      window.alert("Appointment Clash! Try another doctor or date/time");
+                    } else {
+                    
                         fetch("http://localhost:3001/genApptUID")
                           .then(res => res.json())
                           .then(res => {
@@ -303,7 +304,7 @@ export class SchedulingAppt extends Component {
                             })
                           });
                       }
-                    });
+                }); 
                 });
             }}
           >
